@@ -1,0 +1,15 @@
+.form input {
+    vertical-align: top;
+    display: block;
+    border-radius: 5px;
+    border: 1px solid;
+    min-height: 50px    ;
+
+
+}
+
+.form input[type="submit"] {
+    background-color: greenyellow;
+    border: none;
+    padding: 10px;
+}
