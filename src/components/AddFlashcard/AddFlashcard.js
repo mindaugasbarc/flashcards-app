@@ -7,8 +7,7 @@ import "./AddFlashCard.css"
 class AddFlashCard extends Component {
     state = {flashCard: { answer: "", question: ""}};
 
-    onFormSubmit = (event) => {
-        event.preventDefault();
+    onFormSubmit = () => {
         this.props.addFlashCard (this.state.flashCard)
     };
 
@@ -25,13 +24,17 @@ class AddFlashCard extends Component {
     };
 
     render() {
-        return <form className="form" onSubmit={(event) => this.onFormSubmit(event)}>
-            <label title="question" >Question</label>
-            <input type="text" id="question" value={this.state.flashCard.question} onChange={(event) => this.onQuestionChange(event)}/>
-            <label title="answer" >Answer</label>
-            <input type="text" id="answer" value={this.state.flashCard.answer} onChange={(event) => this.onAnswerChange(event)}/>.
-            <input  type="submit" id="addFlashCard" name="Add"/>
-        </form>;
+        return (<div className="ui form">
+            <div className="field">
+                <label>Question</label>
+                <textarea onChange={(event) => this.onQuestionChange(event)}></textarea>
+            </div>
+            <div className="field">
+                <label>Answer</label>
+                <textarea onChange={(event) => this.onAnswerChange(event)}></textarea>
+            </div>
+            <div class="ui submit button" onClick={() => this.onFormSubmit()}>Submit</div>
+        </div>);
     }
 }
 

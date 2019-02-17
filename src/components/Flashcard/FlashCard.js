@@ -1,5 +1,6 @@
 import React from 'react';
-import './FlashCard.css'
+import './FlashCard.css';
+import './Button.css'
 
 const FlashCard = (props) => {
     console.log("flashCard props");
@@ -9,10 +10,13 @@ const FlashCard = (props) => {
         }>
             <div className="front">{props.question}</div>
             <div className="back">{props.answer}</div>
-        </div>
-        <button className="removeButton" onClick={() => props.remove()}>Remove</button>
-        </div>
-
+            <div id="mdiv" >
+                <div class="mdiv">
+                    <div class="md">
+                    </div>
+                </div>
+            </div>
+        </div></div>
 };
 
 export default FlashCard;

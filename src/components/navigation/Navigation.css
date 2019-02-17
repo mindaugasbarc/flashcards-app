@@ -1,0 +1,15 @@
+a {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.navigation {
+    background-color: royalblue;
+    padding: 20px;
+}
+
+.active {
+    color: coral !important;
+    text-decoration: none !important;
+}
