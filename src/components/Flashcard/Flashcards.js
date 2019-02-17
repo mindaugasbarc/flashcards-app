@@ -7,10 +7,22 @@ import "./FlashCards.css";
 
 
 class Flashcards extends Component {
-    render() {
-        return this.props.flashCards.map(flashCard => {
-            return <FlashCard remove={() => this.props.removeFlashCard(flashCard)} clicked={() => this.props.flashCardClick(flashCard)} active={flashCard.active} question={flashCard.question} answer={flashCard.answer}/>
+
+    onFlashCardUpdate = (flashCard) => {
+        this.props.history.push({
+            pathname: '/update',
+            state: {flashCard: flashCard}
         });
+    };
+
+    render() {
+        const flashCards = this.props.flashCards.map(flashCard => {
+            return <FlashCard update={() => this.onFlashCardUpdate(flashCard)} remove={() => this.props.removeFlashCard(flashCard)} clicked={() => this.props.flashCardClick(flashCard)} active={flashCard.active} question={flashCard.question} answer={flashCard.answer}/>
+        });
+
+        return (<div className="flashCardsContainer">
+        { flashCards }
+        </div>);
     }
 }
 

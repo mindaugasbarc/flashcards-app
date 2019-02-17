@@ -1,0 +1,4 @@
+.flashCardsContainer {
+    display: flex;
+    flex-direction: row;
+}

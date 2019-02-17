@@ -27,11 +27,11 @@ class AddFlashCard extends Component {
         return (<div className="ui form">
             <div className="field">
                 <label>Question</label>
-                <textarea onChange={(event) => this.onQuestionChange(event)}></textarea>
+                <textarea onChange={(event) => this.onQuestionChange(event)}>{this.state.flashCard.question}</textarea>
             </div>
             <div className="field">
                 <label>Answer</label>
-                <textarea onChange={(event) => this.onAnswerChange(event)}></textarea>
+                <textarea onChange={(event) => this.onAnswerChange(event)}>{this.state.flashCard.answer}</textarea>
             </div>
             <div class="ui submit button" onClick={() => this.onFormSubmit()}>Submit</div>
         </div>);

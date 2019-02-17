@@ -5,6 +5,7 @@
     height:25px;
     background-color:red;
     border:1px solid black;
+    border-radius: 7px;
 }
 .mdiv
 {
@@ -29,4 +30,10 @@
     -webkit-transform: rotate(90deg); /* Safari and Chrome */
     Z-index:2;
 
+}
+
+.flashCardActionsContainer {
+    display: flex;
+    flex-direction: row;
+    float: right;
 }
