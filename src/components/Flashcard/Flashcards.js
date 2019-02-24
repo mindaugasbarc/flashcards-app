@@ -32,8 +32,11 @@ function mapDispatchToProps(dispatch) {
         removeFlashCard: removeFlashCard}, dispatch)
 }
 
-function mapStateToProps(state, ownProps) {
-    return {flashCards: state.flashCards};
+function mapStateToProps(state) {
+    const flashCardsToShow = Object.values(state.flashCards)
+        .filter(flashCard => state.shownFlashCards.includes(flashCard.id));
+
+    return {flashCards: flashCardsToShow }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Flashcards);

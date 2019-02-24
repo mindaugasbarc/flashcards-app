@@ -16,7 +16,7 @@ class CardSetList extends Component {
 
     render() {
         const cardSets = this.props.cardSets.map(cardSet => {
-            return (<div className="item">
+            return (<div className="item" key={cardSet.id}>
                 <CardSet className="cardSet"
                          clicked={() => this.onCardSetClickHandler(cardSet)}
                          name={cardSet.name}
@@ -38,7 +38,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-    return {cardSets: state.cardSets};
+    return {cardSets: Object.values(state.cardSets)};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardSetList);

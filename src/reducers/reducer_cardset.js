@@ -3,6 +3,7 @@ import {
     UPDATE_CARDSET,
     REMOVE_CARDSET
 } from "../actions/types";
+import _ from "lodash";
 
 const cardSetReducer = (cardSets = {123: {
     id: "123",
@@ -10,11 +11,11 @@ const cardSetReducer = (cardSets = {123: {
     flashCardIds: ["111", "222"]
 }}, action) => {
         if (action.type === ADD_CARDSET) {
-            return cardSets.set(action.payload.id, { name: action.payload.name, flashCardIds: []});
+            return {...cardSets, [action.payload.id]:  { name: action.payload.name, flashCardIds: []}};
         } else if (action.type === UPDATE_CARDSET) {
-            return cardSets.set(action.payload.id, {name: action.payload.name, flashCardIds: action.payload.flashCardIds})
+            return {...cardSets, [action.payload.id]: { ...action.payload}};
         } else if (action.type === REMOVE_CARDSET) {
-            return cardSets.delete(action.payload.id);
+            return _.omit(cardSets, action.payload.id);
         }
         return cardSets;
 };

@@ -2,9 +2,9 @@ import {
     ADD_FLASHCARD,
     UPDATE_FLASHCARD,
     REMOVE_FLASHCARD,
-    CLICK_CARDSET,
     CLICK_FLASHCARD
 } from "../actions/types"
+import _ from "lodash";
 
 const flashCardsReducer = (flashCards = {
     111: {
@@ -21,21 +21,14 @@ const flashCardsReducer = (flashCards = {
     }
 }, action) => {
     if (action.type === ADD_FLASHCARD) {
-        action.payload.id = action.payload.question + action.payload.answer;
-        return flashCards.set(action.payload.id, {...action.payload, active: false});
+        return {...flashCards, [action.payload.id]: {...action.payload, active: false}}
     } else if (action.type === UPDATE_FLASHCARD) {
-        return flashCards.set(action.payload.id, {...action.payload})
+        return {...flashCards, [action.payload.id]: action.payload}
     } else if (action.type === REMOVE_FLASHCARD) {
-        return flashCards.delete(action.payload.id);
+        return _.omit(flashCards, action.payload.id);
     } else if (action.type === CLICK_FLASHCARD) {
-        return flashCards.map(flashCard => {
-            return flashCard === action.payload ? {active: !action.payload.active, question: action.payload.question, answer: action.payload.answer, id: action.payload.id} : flashCard
-        });
-    } else if (action.type === CLICK_CARDSET) {
-        return action.payload.flashCards;
-
+        return {...flashCards, [action.payload.id]: {...action.payload, active: !action.payload.active}}
     }
-
     return flashCards;
 };
 

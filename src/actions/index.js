@@ -63,14 +63,14 @@ export const addCardSet = (cardSet) => {
 
 export const updateCardSet = (cardSet) => {
     return {
-        type: "UPDATE_CARDSET",
+        type: UPDATE_CARDSET,
         payload: cardSet
     }
 };
 
 export const removeCardSet = (cardSet) => {
     return {
-        type: "REMOVE_CARDSET",
+        type: REMOVE_CARDSET,
         payload: cardSet
     }
 };
