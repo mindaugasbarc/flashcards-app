@@ -32,7 +32,7 @@ function mapDispatchToProps(dispatch) {
         removeFlashCard: removeFlashCard}, dispatch)
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
     return {flashCards: state.flashCards};
 }
 

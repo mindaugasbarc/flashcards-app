@@ -33,6 +33,16 @@ export const clickFlashCard = (flashCard) => {
   }
 };
 
+export const clickCardSet = (cardSet) => {
+    console.log("click card set action");
+    console.log(cardSet);
+
+    return {
+        type: "CLICK_CARDSET",
+        payload: cardSet
+    }
+};
+
 export const addCardSet = (cardSet) => {
     return {
         type: "ADD_CARDSET",

@@ -15,6 +15,9 @@ const flashCardsReducer = (flashCards = [{active: false, id: "kazkas", question:
         return flashCards.map(flashCard => {
             return flashCard === action.payload ? {active: !action.payload.active, question: action.payload.question, answer: action.payload.answer, id: action.payload.id} : flashCard
         });
+    } else if (action.type === "CLICK_CARDSET") {
+        return action.payload.flashCards;
+
     }
 
     return flashCards;
